@@ -301,3 +301,110 @@ class PostRepository:
         '''
         pass
 ```
+
+## Tests
+
+These will be encoded as pytest tests.
+
+```python
+'''
+When I create a user object
+it initialises correctly.
+'''
+user_1 = User(None, 'Jake', 'jake@email.com', None)
+user_1.username == 'Jake'
+user_1.email_address == 'jake@email.com'
+
+'''
+When I add two users with identical attributes
+They are considered equal
+'''
+user_1 = User(None, 'Jake', 'jake@email.com', None)
+user_2 = User(None, 'Jake', 'jake@email.com', None)
+user_1 == user_2
+
+'''
+When the user object is converted to a string
+It pretty prints its attributes
+'''
+user_1 = User(None, 'Jake', 'jake@email.com', None)
+str(user_1) == User(jake, jake@email.com)
+
+'''
+When I add a user
+The users details are added to the database
+'''
+user_repository = UserRepository()
+user_1 = User(None, 'Jake', 'jake@email.com', None)
+user_repository.add(user_1)
+user.repository.get() #== User(jake, jake@email.com) 
+
+'''
+When I add mulitple users
+The details of all users are added to the database
+'''
+user_repository = UserRepository()
+user_1 = User(None, 'Jake', 'jake@email.com', None)
+user_2 = User(None, 'Alec', 'alec@email.com', None)
+user_repository.add(user_1)
+user_repository.add(user_2)
+user.repository.get() #== [user_1, user_2]
+
+'''
+When I create a post
+It initialises correctly
+'''
+post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
+post_1.title == 'A test title'
+post_1.content == 'Test content'
+post_1.user_id == 1
+
+'''
+When I add two posts with identical attributes
+They are considered equal
+'''
+post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
+post_2 = Post(None, 'A test title', 'Test content', None, 0, 1)
+post_1 == post_2
+
+'''
+When the post object is converted to a string
+It pretty prints its attributes
+'''
+post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
+str(post_1) == Post(A test title, Test content, 1)
+
+'''
+When I create a post
+The post details are added to the database.
+'''
+post_repository = PostRepository()
+post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
+post_repository.add(post_1)
+post.repository.get() #== post_1
+
+'''
+When I create multiple posts
+The details of all posts are added to the database.
+'''
+post_repository = PostRepository()
+post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
+post_2 = Post(None, 'Another test title', 'Test content', None, 0, 1)
+post_repository.add(post_1)
+post_repository.add(post_2)
+post.repository.get() #== [post_1, post_2]
+
+'''
+When a user has multiple posts
+I can view all posts by that user.
+'''
+post_repository = PostRepository()
+post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
+post_2 = Post(None, 'Another test title', 'Test content', None, 0, 1)
+post_3 = Post(None, 'A post by user 2', 'Test content', None, 0, 2)
+post_repository.add(post_1)
+post_repository.add(post_2)
+post.repository.by_user(1) #== [post_1, post_2]
+
+```
+
