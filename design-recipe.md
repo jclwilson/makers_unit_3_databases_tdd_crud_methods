@@ -328,7 +328,7 @@ When the user object is converted to a string
 It pretty prints its attributes
 '''
 user_1 = User(None, 'Jake', 'jake@email.com', None)
-str(user_1) == User(jake, jake@email.com)
+str(user_1) == 'User(None, Jake, jake@email.com, None)'
 
 '''
 When I add a user

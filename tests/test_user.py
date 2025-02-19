@@ -28,4 +28,4 @@ def test_user_instance_objects_pretty_print():
     It pretty prints its attributes
     '''
     user_1 = User(None, 'Jake', 'jake@email.com', None)
-    assert str(user_1) == 'User(jake, jake@email.com)'
+    assert str(user_1) == 'User(None, Jake, jake@email.com, None)'
