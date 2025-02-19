@@ -181,3 +181,43 @@ class User:
         pass
 
 ```
+
+#### UserRepository
+
+```python
+class UserRepository:
+    '''
+    Controls the CRUD operations for the user table.
+    '''
+    def __init__(self):
+        '''
+        '''
+        pass
+
+    def add(self, username, email):
+        '''
+        Method to create a new user and add them to the database.
+        Parameters: username, email
+        Side effects: creates a new user and adds them to the database.
+        Returns: None
+        '''
+        pass
+
+    def get(self):
+        '''
+        Method to get all users from the database
+        Parameters: None
+        Side effects: None
+        Returns: A list of user instances.
+        '''
+        pass
+
+    def find(self, id):
+        '''
+        Method to get the details of an individual user from the database.
+        Parameters: id
+        Side effects: None
+        Returns: Instance object
+        '''
+        pass
+```
