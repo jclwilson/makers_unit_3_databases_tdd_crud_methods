@@ -43,14 +43,16 @@ Verbs:
 - view
 ```
 
-## Tables names and columns
+## SQL
+
+### Tables names and columns
 
 | Record        | Properties    |
 |-------------------------------|
 | users          | username, email address
 | posts          | post title, post content, publish date, views
 
-## Columntypes
+### Columntypes
 
 | Table : users |
 ----------------
@@ -67,7 +69,7 @@ Verbs:
 | publish_date | date |
 | views | int |
 
-## Table relationships
+### Table relationships
 
 1. Can one user have many posts? YES
 2. Can one post have many users? NO
@@ -78,7 +80,7 @@ Verbs:
 
 -> Therefore, the foreign key is on the posts table.
 
-## SQL
+### Seed file
 
 ```sql
 -- Tidy up previous examples
@@ -124,7 +126,7 @@ INSERT INTO posts (title, content, user_id) VALUES ('Tech news', 'A long blog po
 
 ```
 
-## Create tables
+### Create tables
 
 ```bash
 psql -h localhost -d social_network < social_network.sql
