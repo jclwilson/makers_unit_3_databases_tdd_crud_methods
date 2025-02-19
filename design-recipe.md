@@ -131,3 +131,16 @@ INSERT INTO posts (title, content, user_id) VALUES ('Tech news', 'A long blog po
 ```bash
 psql -h localhost -d social_network < social_network.sql
 ```
+
+## Classes
+
+### Models
+
+- User
+- Post
+
+### Repositories
+
+- UserRepository
+- PostRepository
+
