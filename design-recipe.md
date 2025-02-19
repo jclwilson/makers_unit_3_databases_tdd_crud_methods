@@ -144,3 +144,40 @@ psql -h localhost -d social_network < social_network.sql
 - UserRepository
 - PostRepository
 
+### Interfaces
+
+#### User
+
+```python
+class User:
+    '''
+    Class that models a single user.
+    '''
+    def __init__(self, id, username, email_address, signup_date):
+        '''
+        Parameters: id, username, email address, and signup date
+        Side Effects: None
+        Returns: None
+        '''
+        self.id = id
+        self.username = username
+        self.email_address = email_address
+        self.signup_date = signup_date
+
+    def __eq__(self, other):
+        '''
+        Parameters: Other
+        Side effects: reqrites eq method
+        Returns: statement asserting self == other.
+        '''
+        pass
+
+    def __repr__(self):
+        '''
+        Parameters: None
+        Side effects: rewrites repr method.
+        Returns: Pretty printed representation of the instance object.
+        '''
+        pass
+
+```
