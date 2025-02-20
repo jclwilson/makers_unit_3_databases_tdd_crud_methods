@@ -70,3 +70,17 @@ def test_delete_users_in_database(db_connection):
     assert found_user.email_address == 'tobedeleted@email.com'
     user_repository.delete(1)
     assert user_repository.find(1) == None 
+
+def test_get_user_post_info_combined_object(db_connection):
+    db_connection.seed('seeds/social_network_tables.sql')
+    db_connection.seed('seeds/social_network_users.sql')
+    db_connection.seed('seeds/social_network_data.sql')
+    user_repository = UserRepository(db_connection)
+    user_post_object = user_repository.get_user_post_info(1)
+    print(user_post_object)
+    print(user_post_object.posts)
+    assert user_post_object.id == 1
+    assert user_post_object.username == 'Jake'
+    assert user_post_object.email_address == 'jake@email.com'
+    assert user_post_object.posts[0].title == 'An example title'
+    assert user_post_object.posts[1].title == 'Art news'
