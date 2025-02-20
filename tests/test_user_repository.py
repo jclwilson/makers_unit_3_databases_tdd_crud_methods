@@ -2,10 +2,6 @@
 Tests for UserRepository repository class.
 '''
 
-import pytest 
-
-from unittest.mock import ANY
-
 from lib.user_repository import UserRepository
 from lib.user import User
 
@@ -35,7 +31,16 @@ def test_add_multiple_users_to_database(db_connection):
     user_2 = User(None, 'Alec', 'alec@email.com', None)
     user_repository.add(user_1)
     user_repository.add(user_2)
-    user_repository.get() == [user_1, user_2]
+    
+    added_user_1 = user_repository.get()[0]
+    added_user_2 = user_repository.get()[1]
+    assert added_user_1.id == 1
+    assert added_user_1.username == 'Jake'
+    assert added_user_1.email_address == 'jake@email.com'
+    
+    assert added_user_2.id == 2
+    assert added_user_2.username == 'Alec'
+    assert added_user_2.email_address == 'alec@email.com'
 
 def test_find_users_in_database(db_connection):
     '''
