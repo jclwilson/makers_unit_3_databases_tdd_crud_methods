@@ -49,10 +49,10 @@ def test_find_users_in_database(db_connection):
     user_repository.add(user_1)
     user_repository.add(user_2)
     added_user = user_repository.find(1)
-    assert added_user[0].id == 1
-    assert added_user[0].username == 'Jake'
-    assert added_user[0].email_address == 'jake@email.com'
-    assert added_user[0].signup_date is not None
+    assert added_user.id == 1
+    assert added_user.username == 'Jake'
+    assert added_user.email_address == 'jake@email.com'
+    assert added_user.signup_date is not None
 
 def test_delete_users_in_database(db_connection):
     db_connection.seed('seeds/social_network_tables.sql')
@@ -60,8 +60,8 @@ def test_delete_users_in_database(db_connection):
     user_1 = User(None, 'Delete Me', 'tobedeleted@email.com', None)
     user_repository.add(user_1)
     found_user = user_repository.find(1)
-    assert found_user[0].id == 1
-    assert found_user[0].username == 'Delete Me'
-    assert found_user[0].email_address == 'tobedeleted@email.com'
+    assert found_user.id == 1
+    assert found_user.username == 'Delete Me'
+    assert found_user.email_address == 'tobedeleted@email.com'
     user_repository.delete(1)
-    assert user_repository.find(1) == []
+    assert user_repository.find(1) == None 
