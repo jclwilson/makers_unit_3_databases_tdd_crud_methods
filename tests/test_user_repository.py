@@ -59,6 +59,9 @@ def test_delete_users_in_database(db_connection):
     user_repository = UserRepository(db_connection)
     user_1 = User(None, 'Delete Me', 'tobedeleted@email.com', None)
     user_repository.add(user_1)
-    assert user_repository.find(1) == ['User(1, Jake, jacob@email.com, None)']
+    found_user = user_repository.find(1)
+    assert found_user[0].id == 1
+    assert found_user[0].username == 'Delete Me'
+    assert found_user[0].email_address == 'tobedeleted@email.com'
     user_repository.delete(1)
-    assert user_repository.find(1) == None
+    assert user_repository.find(1) == []
