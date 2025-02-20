@@ -11,7 +11,7 @@ def test_post_inits_correctly():
     '''
     post_1 = Post(None, 'A test title', 'Test content', None, 0, 1)
     assert post_1.title == 'A test title'
-    assert post_1.contents == 'Test content'
+    assert post_1.content == 'Test content'
     assert post_1.views == 0
     assert post_1.user_id == 1
 

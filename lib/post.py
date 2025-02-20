@@ -2,15 +2,15 @@ class Post:
     '''
     Class that models a signle post.
     '''
-    def __init__(self, id, title, contents, publish_date, views, user_id):
+    def __init__(self, id, title, content, publish_date, views, user_id):
         '''
-        Parameters: id, title, contents, publish_date, views
+        Parameters: id, title, content, publish_date, views
         Side effects: None
         Returns: None
         '''
         self.id = id
         self.title = title
-        self.contents = contents
+        self.content = content
         self.publish_date = publish_date
         self.views = views
         self.user_id = user_id
@@ -29,4 +29,4 @@ class Post:
         Side effects: rewrites repr method.
         Returns: Pretty printed representation of the instance object.
         '''
-        return f"Post({self.id}, {self.title}, {self.contents}, {self.publish_date}, {self.views}, {self.user_id})"
+        return f"Post({self.id}, {self.title}, {self.content}, {self.publish_date}, {self.views}, {self.user_id})"
